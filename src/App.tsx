@@ -1,12 +1,9 @@
-import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { Button } from "react-timer-component";
+import { Timer } from "react-timer-component";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div>
@@ -19,8 +16,13 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)} />
-        <div>{count}</div>
+        <Timer
+          seconds={400}
+          width="300px"
+          backgroundColor="blue"
+          accentColor="red"
+          textColor="wheat"
+        />
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
