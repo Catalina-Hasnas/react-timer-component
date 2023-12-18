@@ -13,8 +13,11 @@ export const CircularProgress = ({ percent }: { percent: number }) => {
       width="100%"
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
-      className="svg-container"
+      className="timer-lib-svg"
+      aria-labelledby="title desc"
     >
+      <title id="title">Progress Bar</title>
+      <desc id="desc">A circular progress bar showing {percent}% progress</desc>
       <circle
         r={radius}
         cx={xy}
@@ -25,7 +28,7 @@ export const CircularProgress = ({ percent }: { percent: number }) => {
         style={{
           strokeDashoffset: `-${strokeDashOffsetBar}px`,
         }}
-      ></circle>
+      />
     </svg>
   );
 };

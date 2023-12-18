@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
 import "./timer.css";
+import { useEffect, useMemo, useState } from "react";
 import { CircularProgress } from "./CircularProgress";
 
 type TimerProps = {
   seconds: number;
   width: string;
+  sendBrowserNotification?: boolean;
   backgroundColor?: string;
   accentColor?: string;
   textColor?: string;
@@ -13,6 +14,7 @@ type TimerProps = {
 export const Timer = ({
   seconds: countdownSeconds,
   width,
+  sendBrowserNotification = false,
   backgroundColor,
   accentColor,
   textColor,
@@ -32,9 +34,7 @@ export const Timer = ({
   }, [countdownSeconds]);
 
   const handleClick = () => {
-    if (!("Notification" in window)) {
-      console.log("Browser does not support desktop notification");
-    } else {
+    if (sendBrowserNotification) {
       Notification.requestPermission();
     }
     if (intervalId) {
@@ -47,15 +47,15 @@ export const Timer = ({
       }
     }
 
-    const newIntervalId = setInterval(() => {
+    const newIntervalId = window.setInterval(() => {
       setSeconds((prevSeconds) => {
-        if (prevSeconds === 1) {
+        if (sendBrowserNotification && prevSeconds === 1) {
           new Notification("Time's up!");
         }
         return prevSeconds > 1 ? prevSeconds - 1 : 0;
       });
     }, 1000);
-    setIntervalId(newIntervalId as unknown as number);
+    setIntervalId(newIntervalId);
   };
 
   const timeRemaining = useMemo(() => {
@@ -67,14 +67,27 @@ export const Timer = ({
   }, [seconds]);
 
   return (
-    <div style={timerStyles} className="timer">
-      <div className="timer-container">
+    <section
+      role="region"
+      aria-label="circular countdown"
+      style={timerStyles}
+      className="timer-lib-component"
+    >
+      <div className="timer-lib-container">
         <CircularProgress percent={(seconds / countdownSeconds) * 100} />
-        <h2 className="timer-display">{timeRemaining}</h2>
-        <button className="timer-button" onClick={handleClick}>
+        <time dateTime={timeRemaining} className="timer-lib-display">
+          {timeRemaining}
+        </time>
+        <button
+          aria-label={
+            !intervalId ? "START" : seconds === 0 ? "RESTART" : "PAUSE"
+          }
+          className="timer-lib-button"
+          onClick={handleClick}
+        >
           {!intervalId ? "START" : seconds === 0 ? "RESTART" : "PAUSE"}
         </button>
       </div>
-    </div>
+    </section>
   );
 };

@@ -1,4 +1,4 @@
-.timer {
+.timer-lib-component {
   --timer-width: min-content;
   --primary-color: transparent;
   --accent-color: #f87070;
@@ -9,7 +9,7 @@
   border-radius: 50%;
 }
 
-.timer-container {
+.timer-lib-container {
   position: relative;
   height: 100%;
   width: 100%;
@@ -19,12 +19,12 @@
   align-items: center;
 }
 
-.svg-container {
+.timer-lib-svg {
   position: absolute;
   transform: rotate(-90deg);
 }
 
-.svg-container circle {
+.timer-lib-svg circle {
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 1s linear;
   stroke: var(--accent-color);
@@ -32,14 +32,14 @@
   stroke-linecap: round;
 }
 
-.timer-display {
+.timer-lib-display {
   margin-block: 0;
   font-size: calc(var(--timer-width) * 0.25);
   z-index: 1;
   color: var(--text-color);
 }
 
-.timer-button {
+.timer-lib-button {
   border-radius: 0.5rem;
   font-size: calc(var(--timer-width) * 0.05);
   letter-spacing: calc(var(--timer-width) * 0.02);
@@ -50,9 +50,10 @@
   font-family: inherit;
   z-index: 1;
   color: var(--text-color);
+  margin-inline: auto;
 }
 
-.timer-button:hover {
+.timer-lib-button:hover {
   outline: 1px solid;
   outline-color: var(--accent-color);
 }
