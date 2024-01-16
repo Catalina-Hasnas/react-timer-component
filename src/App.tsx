@@ -46,6 +46,10 @@ function App() {
           <p>With browser notification</p>
           <Timer seconds={20} width="300px" sendBrowserNotification />
         </div>
+        <div className="parent-width">
+          <p>With height and width coming from the parent</p>
+          <Timer seconds={20} />
+        </div>
       </main>
     </>
   );

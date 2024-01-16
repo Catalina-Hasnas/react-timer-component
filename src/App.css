@@ -9,3 +9,8 @@
   justify-content: space-around;
   gap: 2rem;
 }
+
+.parent-width {
+  width: 450px;
+  height: 450px;
+}

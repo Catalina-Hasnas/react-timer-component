@@ -4,11 +4,11 @@ import { CircularProgress } from "./CircularProgress";
 
 type TimerProps = {
   seconds: number;
-  width: string;
-  sendBrowserNotification?: boolean;
+  width?: string;
   backgroundColor?: string;
   accentColor?: string;
   textColor?: string;
+  sendBrowserNotification?: boolean;
 };
 
 export const Timer = ({

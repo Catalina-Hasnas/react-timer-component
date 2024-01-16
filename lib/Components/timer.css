@@ -1,5 +1,9 @@
 .timer-lib-component {
-  --timer-width: min-content;
+  container-type: inline-size;
+}
+
+.timer-lib-component {
+  --timer-width: 100%;
   --primary-color: transparent;
   --accent-color: #f87070;
   --text-color: white;
@@ -10,21 +14,20 @@
 }
 
 .timer-lib-container {
-  position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.timer-lib-svg {
+.timer-lib-svg-container {
   position: absolute;
   transform: rotate(-90deg);
 }
 
-.timer-lib-svg circle {
+.timer-lib-svg-container circle {
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 1s linear;
   stroke: var(--accent-color);
@@ -34,15 +37,15 @@
 
 .timer-lib-display {
   margin-block: 0;
-  font-size: calc(var(--timer-width) * 0.25);
+  font-size: max(1rem, 25cqi);
   z-index: 1;
   color: var(--text-color);
 }
 
 .timer-lib-button {
   border-radius: 0.5rem;
-  font-size: calc(var(--timer-width) * 0.05);
-  letter-spacing: calc(var(--timer-width) * 0.02);
+  font-size: max(0.6rem, 6cqi);
+  letter-spacing: max(0.02rem, 2cqi);
   padding: 0.6em 1.2em;
   background-color: transparent;
   border: 0;
@@ -50,7 +53,6 @@
   font-family: inherit;
   z-index: 1;
   color: var(--text-color);
-  margin-inline: auto;
 }
 
 .timer-lib-button:hover {
