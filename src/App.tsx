@@ -20,6 +20,22 @@ const timers = [
     accentColor: "darkmagenta",
     textColor: "#512758",
   },
+  {
+    description: "With browser notification",
+    seconds: 20,
+    width: "300px",
+    sendBrowserNotification: true,
+  },
+  {
+    description: "Override timer styles",
+    seconds: 20,
+    width: "300px",
+    timerStyles: {
+      background: "linear-gradient(315deg, #2e325a 0%, #0e112a 100%)",
+      "box-shadow":
+        "50px 50px 100px 0px #121530, -50px -50px 100px 0px #272c5a",
+    },
+  },
 ];
 
 function App() {
@@ -39,13 +55,11 @@ function App() {
               backgroundColor={timer.backgroundColor}
               accentColor={timer.accentColor}
               textColor={timer.textColor}
+              sendBrowserNotification={timer.sendBrowserNotification}
+              timerStyles={timer.timerStyles}
             />
           </div>
         ))}
-        <div>
-          <p>With browser notification</p>
-          <Timer seconds={20} width="300px" sendBrowserNotification />
-        </div>
         <div className="parent-width">
           <p>With height and width coming from the parent</p>
           <Timer seconds={20} />

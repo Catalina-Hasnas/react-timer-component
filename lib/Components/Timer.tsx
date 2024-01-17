@@ -9,6 +9,7 @@ type TimerProps = {
   accentColor?: string;
   textColor?: string;
   sendBrowserNotification?: boolean;
+  timerStyles?: Record<string, string>;
 };
 
 export const Timer = ({
@@ -18,6 +19,7 @@ export const Timer = ({
   backgroundColor,
   accentColor,
   textColor,
+  timerStyles: timerStylesInit,
 }: TimerProps) => {
   const [seconds, setSeconds] = useState(300);
   const [intervalId, setIntervalId] = useState(0);
@@ -27,6 +29,7 @@ export const Timer = ({
     "--primary-color": backgroundColor,
     "--accent-color": accentColor,
     "--text-color": textColor,
+    ...timerStylesInit,
   };
 
   useEffect(() => {
