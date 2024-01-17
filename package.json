@@ -1,8 +1,25 @@
 {
-  "name": "react-timer-component",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@catalinahasnas/react-timer-component",
+  "version": "1.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Catalina-Hasnas/react-timer-component.git"
+  },
+  "keywords": [
+    "react",
+    "timer",
+    "countdown",
+    "clock",
+    "stopwatch",
+    "notification"
+  ],
+  "author": "Catalina Hasnas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Catalina-Hasnas/react-timer-component/issues"
+  },
+  "homepage": "https://github.com/Catalina-Hasnas/react-timer-component#readme",
   "files": [
     "dist"
   ],
