@@ -32,10 +32,6 @@ export const Timer = ({
     ...timerStylesInit,
   };
 
-  // useEffect(() => {
-  //   setSeconds(countdownSeconds);
-  // }, [countdownSeconds]);
-
   const handleClick = () => {
     if (sendBrowserNotification) {
       Notification.requestPermission();
