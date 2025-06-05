@@ -1,5 +1,5 @@
 import "./timer.css";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CircularProgress } from "./CircularProgress";
 
 type TimerProps = {
@@ -31,6 +31,10 @@ export const Timer = ({
     "--text-color": textColor,
     ...timerStylesInit,
   };
+
+  useEffect(() => {
+    setSeconds(countdownSeconds);
+  }, [countdownSeconds]);
 
   const handleClick = () => {
     if (sendBrowserNotification) {
