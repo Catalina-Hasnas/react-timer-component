@@ -1,5 +1,5 @@
+import { Timer } from "../lib/main";
 import "./App.css";
-import { Timer } from "react-timer-component";
 
 const timers = [
   {
